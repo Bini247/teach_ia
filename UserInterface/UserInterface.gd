@@ -13,4 +13,3 @@ func _on_TextureButton_pressed():
 	
 	get_parent().get_parent().set_speed_mode(current_speed)
 	$VBoxContainer2/TextureButton/Speed.text = "Speed: " + str(current_speed) + "x"
-	

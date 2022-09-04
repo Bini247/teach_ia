@@ -27,11 +27,11 @@ func _ready():
 			set_cell(x, y, 9)
 			grid[x].append(null)
 	
-	set_tile_positions(positions)
+	set_tile_positions()
 	
 	var player_position = Vector2(1,6)
 
-func set_tile_positions(positions):
+func set_tile_positions():
 	for n in range(grid_size.x):
 		var grid_pos = Vector2(n, 0)
 		if not grid_pos in positions:
