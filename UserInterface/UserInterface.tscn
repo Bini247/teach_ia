@@ -92,4 +92,5 @@ margin_left = 138.104
 margin_top = -182.866
 margin_right = 178.104
 margin_bottom = -142.866
+
 [connection signal="pressed" from="VBoxContainer2/TextureButton" to="." method="_on_TextureButton_pressed"]

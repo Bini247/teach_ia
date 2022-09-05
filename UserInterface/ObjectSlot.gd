@@ -24,9 +24,9 @@ func _on_ObjectSlot_gui_input(event):
 			clicked = true
 
 func _physics_process(delta):
-	if clicked_preview: clicked_preview.rect_position = get_viewport().get_mouse_position()
+	if clicked: clicked_preview.rect_position = get_viewport().get_mouse_position()
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel") || event.is_action_pressed("right_click"):
-		clicked_preview.queue_free()
+	if (event.is_action_pressed("ui_cancel") || event.is_action_pressed("right_click")) && clicked:
 		clicked = false
+		clicked_preview.queue_free()
