@@ -44,7 +44,11 @@ func set_speed_mode(current_speed):
 
 func reset():
 	var middle = int(game_size.x / 2 / cell_size.x)
-	player.position = grid.map_to_world(Vector2(middle, middle))
+	var player_position = grid.map_to_world(Vector2(middle, middle))
+	
+	if GameData.items_positions.agent.size() > 0: player_position = grid.map_to_world(GameData.items_positions.agent[0])
+	
+	player.position = player_position
 	player_direction = DIR.DOWN
 	dead = false
 	spawn_food()
@@ -87,6 +91,9 @@ func move_player():
 			max_points = points
 			$CanvasLayer/UserInterface/VBoxContainer/MaxPoints.text = "Record: " + str(max_points)
 			
+		if GameData.items_positions.objective.size() > 0:
+			reset()
+			return
 		spawn_food()
 
 func on_death():
@@ -99,6 +106,12 @@ func on_death():
 		dead = true
 
 func spawn_food():
+	
+	if GameData.items_positions.objective.size() > 0: 
+		food = GameData.items_positions.objective[0]
+		chest.position = grid.map_to_world(food)
+		return
+	
 	var x = randi() % int(game_size.x / cell_size.x)
 	var y = randi() % int(game_size.x / cell_size.x)
 	

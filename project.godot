@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="Teach_IA"
-run/main_scene="res://AI Environment.tscn"
+run/main_scene="res://LevelEditor.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameData="*res://Autoload/GameData.gd"
 
 [display]
 

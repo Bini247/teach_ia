@@ -1,5 +1,7 @@
 extends TextureRect
 
+export var item_name = ""
+
 var clicked = false
 var clicked_preview = false
 
@@ -21,6 +23,7 @@ func _on_ObjectSlot_gui_input(event):
 			drag_texture.rect_position = get_viewport().get_mouse_position()
 			clicked_preview = drag_texture
 			get_parent().add_child(control)
+			GameData.editor_selected_item = item_name
 			clicked = true
 
 func _physics_process(delta):

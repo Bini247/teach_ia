@@ -2,7 +2,6 @@
 
 [ext_resource path="res://UserInterface/UserInterface.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Minecraft.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://UserInterface/ObjectSlot.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -11,6 +10,11 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -29,14 +33,15 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_bottom = 1.0
 margin_right = 352.0
-margin_bottom = -400.0
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Points" type="Label" parent="VBoxContainer"]
+margin_top = 248.0
 margin_right = 352.0
-margin_bottom = 50.0
+margin_bottom = 298.0
 rect_min_size = Vector2( 0, 50 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -45,9 +50,9 @@ align = 1
 valign = 1
 
 [node name="MaxPoints" type="Label" parent="VBoxContainer"]
-margin_top = 54.0
+margin_top = 302.0
 margin_right = 352.0
-margin_bottom = 104.0
+margin_bottom = 352.0
 rect_min_size = Vector2( 0, 50 )
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
@@ -55,18 +60,35 @@ text = "Max points"
 align = 1
 valign = 1
 
+[node name="Timer" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -105.0
+margin_right = 105.0
+margin_bottom = 74.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Timer"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -352.0
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer2"]
+margin_top = 260.0
 margin_right = 352.0
-margin_bottom = 80.0
+margin_bottom = 340.0
 rect_min_size = Vector2( 0, 80 )
 mouse_default_cursor_shape = 2
 __meta__ = {
@@ -84,13 +106,5 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="ObjectSlot" parent="." instance=ExtResource( 3 )]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 138.104
-margin_top = -182.866
-margin_right = 178.104
-margin_bottom = -142.866
 
 [connection signal="pressed" from="VBoxContainer2/TextureButton" to="." method="_on_TextureButton_pressed"]

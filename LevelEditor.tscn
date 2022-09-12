@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Grid.gd" type="Script" id=1]
-[ext_resource path="res://UserInterface/UserInterface.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UserInterface/LevelEditorInterface.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ground.tres" type="TileSet" id=3]
 [ext_resource path="res://GridVisualizer.gd" type="Script" id=4]
 
@@ -26,4 +26,4 @@ script = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UserInterface" parent="CanvasLayer" instance=ExtResource( 2 )]
+[node name="LevelEditorInterface" parent="CanvasLayer" instance=ExtResource( 2 )]

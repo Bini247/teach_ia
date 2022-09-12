@@ -114,7 +114,7 @@ func move_player(update):
 		reward = -100
 	# Did we just eat the food
 	elif length != game.points:
-		reward = 10
+		reward = 20
 		length = game.points
 	else:
 		# Compare direction to food location

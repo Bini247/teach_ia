@@ -1,5 +1,7 @@
 extends TileMap
 
+onready var obstacle = preload("res://Agents/Obstacle/Obstacle.tscn")
+
 var tile_size = get_cell_size()
 var half_tile_size = tile_size / 2
 
@@ -53,10 +55,10 @@ func set_tile_positions():
 			set_cell(grid_size.x-1, n, 14)
 			if n == 0: set_cell(grid_size.x-1, 0, 12)
 			positions.append(grid_pos)
-
-func _physics_process(delta):
-	var mouse_pos = get_global_mouse_position()
-	var tile_pos = world_to_map(mouse_pos)
-	var tile_cell_at_mouse_pos = get_cell(tile_pos.x, tile_pos.y)
-
-	$GridVisualizer.redraw(tile_pos)
+	
+	if GameData.items_positions['obstacle'].size() > 0:
+		for obstacle_pos in GameData.items_positions['obstacle']:
+			positions.append(obstacle_pos)
+			var new_object = obstacle.instance()
+			new_object.position = (map_to_world(obstacle_pos) + half_tile_size)
+			add_child(new_object)
