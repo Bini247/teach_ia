@@ -62,7 +62,7 @@ Antes de começar, verifique se você atendeu aos seguintes requisitos:
    ```sh
    git clone https://github.com/Bini247/teach_ia.git
    ```
-2. Execute o godot engenie e clique em "importar"
+2. Execute o godot engine e clique em "importar"
    
 3. Vá na pasta onde clonou o repositório e selecione o arquivo "project.godot"
 
